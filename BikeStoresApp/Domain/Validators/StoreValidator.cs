@@ -1,4 +1,5 @@
 ﻿using BikeStoreEntities;
+using BikeStoresApp.Application.Stores;
 using FluentValidation;
 using System;
 using System.Collections.Generic;
@@ -7,11 +8,10 @@ using System.Threading.Tasks;
 
 namespace BikeStoresApp.Domain.Validators
 {
-    public class StoreValidator : AbstractValidator<Store>
+    public class StoreValidator : AbstractValidator<StoreRequestDto>
     {
         public StoreValidator()
         {
-            RuleFor(s => s.StoreId).NotEmpty().NotNull();
             RuleFor(s => s.Name).NotEmpty().NotNull();
             RuleFor(s => s.Phone).NotEmpty().NotNull().Length(10);
             RuleFor(s => s.Email).EmailAddress();
