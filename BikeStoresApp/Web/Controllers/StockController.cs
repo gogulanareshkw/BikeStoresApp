@@ -6,12 +6,15 @@ using BikeStoresApp.Application.Stocks;
 using BikeStoresApp.Application.Stocks.Commands;
 using BikeStoresApp.Application.Stocks.Queries;
 using MediatR;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BikeStoresApp.Web.Controllers
 {
     [Route("api")]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     [ApiController]
     public class StockController : ControllerBase
     {
